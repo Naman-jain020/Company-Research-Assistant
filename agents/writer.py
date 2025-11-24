@@ -11,7 +11,7 @@ class Writer:
     """
     
     def __init__(self, api_key=None):
-        api_key = api_key or Config.GROQ_API_REMOVED
+        api_key = api_key or Config.GROQ_API_KEY
         if not api_key:
             raise ValueError("GROQ_API_REMOVED not found. Please set it in your .env file or config.py")
         

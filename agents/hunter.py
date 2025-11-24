@@ -14,8 +14,8 @@ class Hunter:
     
     def __init__(self):
         # Initialize Tavily client
-        if Config.USE_TAVILY and Config.TAVILY_API_REMOVED:
-            self.tavily = TavilyClient(api_key=Config.TAVILY_API_REMOVED)
+        if Config.USE_TAVILY and Config.TAVILY_API_KEY:
+            self.tavily = TavilyClient(api_key=Config.TAVILY_API_KEY)
             self.use_tavily = True
             print("✓ Hunter initialized with Tavily API")
         else:

@@ -13,9 +13,9 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 # Ensure secret key is set
-if not app.config['SECRET_REMOVED'] or app.config['SECRET_REMOVED'] == 'dev-secret-key-change-in-production':
+if not app.config['SECRET_KEY'] or app.config['SECRET_KEY'] == 'dev-secret-key-change-in-production':
     import secrets
-    app.config['SECRET_REMOVED'] = secrets.token_hex(32)
+    app.config['SECRET_KEY'] = secrets.token_hex(32)
 
 # Create required directories
 os.makedirs(Config.DOCUMENTS_FOLDER, exist_ok=True)
@@ -698,8 +698,8 @@ if __name__ == '__main__':
     print("\n" + "="*60)
     print("🚀 Company Research Assistant Chatbot")
     print("="*60)
-    print(f"✓ Groq API Key: {'Configured ✅' if Config.GROQ_API_REMOVED else '❌ MISSING'}")
-    print(f"✓ Tavily API Key: {'Configured ✅' if Config.TAVILY_API_REMOVED else '❌ MISSING'}")
+    print(f"✓ Groq API Key: {'Configured ✅' if Config.GROQ_API_KEY else '❌ MISSING'}")
+    print(f"✓ Tavily API Key: {'Configured ✅' if Config.TAVILY_API_KEY else '❌ MISSING'}")
     print(f"✓ Documents Folder: {Config.DOCUMENTS_FOLDER}")
     print(f"✓ Server: http://localhost:8080")
     print("="*60)

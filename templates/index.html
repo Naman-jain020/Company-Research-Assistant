@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company Research Assistant</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="sidebar-header">
+          <h2><i class="fas fa-building"></i> Research Assistant</h2>
+        </div>
+        <button class="new-chat-btn" onclick="newChat()">
+          <i class="fas fa-plus"></i> New Chat
+        </button>
+
+        <div class="commands-info">
+          <h3>Commands</h3>
+          <ul>
+            <li><code>/doc-preview</code> - View document</li>
+            <li><code>/doc-download</code> - Download report</li>
+            <li><code>/new-chat</code> - Start new chat</li>
+            <li><code>/dig-deeper</code> - Deep analysis</li>
+          </ul>
+
+          <h3 style="margin-top: 24px">💡 Tips</h3>
+          <ul style="font-size: 13px; line-height: 1.6">
+            <li>🎯 Be specific with company names</li>
+            <li>🔍 Ask follow-up questions naturally</li>
+            <li>📊 Use /dig-deeper for detailed info</li>
+            <li>🎤 Click mic for voice input</li>
+            <li>❓ Type "help" if you're confused</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Main Chat Area -->
+      <div class="main-content">
+        <div class="chat-header">
+          <h1>Company Research Assistant</h1>
+          <p>Ask me anything about companies, industries, and markets</p>
+        </div>
+
+        <div class="chat-container" id="chatContainer">
+          <div class="welcome-message">
+            <i class="fas fa-search fa-3x"></i>
+            <h2>Welcome to Company Research Assistant</h2>
+            <p>
+              I can help you research companies through intelligent web search
+              and analysis.
+            </p>
+            <div class="example-queries">
+              <p><strong>Try asking:</strong></p>
+              <ul>
+                <li>"What are Tesla's latest developments?"</li>
+                <li>"Compare Apple and Microsoft's revenue"</li>
+                <li>"Tell me about OpenAI's business model"</li>
+                <li>"Who is the CEO of Amazon?"</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Suggestions Container -->
+        <div
+          class="suggestions-container"
+          id="suggestionsContainer"
+          style="display: none"
+        >
+          <div class="suggestions-chips" id="suggestionsChips">
+            <!-- Suggestion chips will be dynamically inserted here -->
+          </div>
+        </div>
+
+        <div class="input-container">
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="userInput"
+              placeholder="Ask about a company or type a command (e.g., /doc-preview)..."
+              onkeypress="handleKeyPress(event)"
+            />
+            <!-- Voice Input Button -->
+            <button
+              onclick="toggleVoiceInput()"
+              id="voiceBtn"
+              class="voice-btn"
+              title="Voice input"
+            >
+              <i class="fas fa-microphone"></i>
+            </button>
+            <button onclick="sendMessage()" id="sendBtn">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Document Preview -->
+    <div id="docModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="docPreview"></div>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>

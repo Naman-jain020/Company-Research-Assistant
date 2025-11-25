@@ -22,7 +22,10 @@ An AI-powered research chatbot that helps you gather comprehensive information a
 
 ---
 
-## 🚀 Quick Start
+Check it out 🚀 : https://huggingface.co/spaces/NamanJ2/company-research-assistant
+
+---
+## Quick Start
 
 ### Prerequisites
 
